@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faça o seu Pedido</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/carrinho.css">
+    <link rel="stylesheet" href="css/pedidos.css">
+    <style>
+      body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.produtos {
+    width: 100%;
+    max-width: 940px;
+    margin: 0 auto;
+    padding: 50px 0;
+    cursor: pointer;
+}
+
+.produtos li {
+    display: inline-block;
+    text-align: center;
+    width: 30%;
+    vertical-align: top;
+    margin: 0 1.5%;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    border: 2px solid #000000;
+    border-radius: 10px;
+}
+
+.produtos li:hover {
+    border-color: #C78C19;
+}
+
+.produtos li:active {
+    border-color: #088C19;
+}
+
+.produtos li:hover h2 {
+    font-size: 34px;
+}
+
+.produtos h2 {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.produtos .produto-descricao {
+    font-size: 18px;
+}
+
+.produtos .produto-preco {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 10px;
+}
+
+img {
+    width: 225px;
+    height: 225px;
+}
+
+#pasteisTitle {
+    text-align: center;
+    margin-top: 10%;
+}
+
+#salgadosTitle {
+    text-align: center;
+    margin-top: 10%;
+}
+
+.salgados {
+    width: 100%;
+    max-width: 940px;
+    margin: 0 auto;
+    padding: 50px 0;
+    cursor: pointer;
+}
+
+.salgados li {
+    display: inline-block;
+    text-align: center;
+    width: 30%;
+    vertical-align: top;
+    margin: 0 1.5%;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    border: 2px solid #000000;
+    border-radius: 10px;
+    margin-left: 1.5%;
+}
+
+.salgados li:hover {
+    border-color: #C78C19;
+}
+
+.salgados li:active {
+    border-color: #088C19;
+}
+
+.salgados li:hover h2 {
+    font-size: 34px;
+}
+
+.salgados h2 {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.salgados .produto-descricao {
+    font-size: 18px;
+}
+
+.salgados .produto-preco {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 10px;
+}
+
+.nav-1 {
+    background-color: gray;
+    padding: 75px;
+}
+
+#navigation {
+    display: flex;
+    justify-content: center;
+}
+
+#navigation li {
+    list-style: none;
+}
+
+#navigation a {
+    color: white;
+    padding: 5px;
+    text-decoration: none;
+}
+
+.footer {
+    background-color: gray;
+    padding: 75px;
+}
+
+p {
+    text-align: center;
+}
+
+#bebidasTitle {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 10%;
+}
+
+#bebidaLegend {
+    text-align: center;
+    margin-top: 1.5%;
+}
+
+.bebidas {
+    width: 100%;
+    max-width: 940px;
+    margin: 0 auto;
+    padding: 50px 0;
+    cursor: pointer;
+}
+
+.bebidas li {
+    display: inline-block;
+    text-align: center;
+    width: 30%;
+    vertical-align: top;
+    margin: 0 1.5%;
+    padding: 30px 20px;
+    box-sizing: border-box;
+    border: 2px solid #000000;
+    border-radius: 10px;
+}
+
+.bebidas li:hover {
+    border-color: #C78C19;
+}
+
+.bebidas li:active {
+    border-color: #088C19;
+}
+
+.bebidas li:hover h2 {
+    font-size: 34px;
+}
+
+.bebidas h2 {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.bebidas .produto-descricao {
+    font-size: 18px;
+}
+
+.bebidas .produto-preco {
+    font-size: 22px;
+    font-weight: bold;
+    margin: 10px;
+}
+
+#descartaveisTitle {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 3.5%;
+}
+
+#garrafasTitle {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 3.5%;
+}
+
+#latasTitle {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 3.5%;
+}
+
+#juninhosTitle {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 3.5%;
+}
+
+.pedidoCart {
+    display: flex;
+    position: relative;
+    justify-content: right;
+    padding: 60px;
+}
+
+.pedidoCart img {
+    width: 12.5%;
+    height: 12.5%;
+}
+
+@media screen and (max-width: 480px) {
+    .produtos li,
+    .salgados li,
+    .bebidas li {
+        width: 48%;
+        margin: 0 2%;
+        padding: 20px 12px;
+        margin-left: 3.5%;
+    }
+
+    .produtos h2,
+    .salgados h2,
+    .bebidas h2 {
+        font-size: 12.5px;
+    }
+
+    .produtos .produto-descricao,
+    .salgados .produto-descricao,
+    .bebidas .produto-descricao {
+        font-size: 12.5px;
+    }
+
+    .produtos .produto-preco,
+    .salgados .produto-preco,
+    .bebidas .produto-preco {
+        font-size: 12px;
+        margin-left: 5px;
+    }
+
+    img {
+        width: 50px;
+        height: 50px;
+    }
+
+    #pasteisTitle,
+    #salgadosTitle,
+    #bebidasTitle,
+    #descartaveisTitle,
+    #garrafasTitle,
+    #latasTitle,
+    #juninhosTitle {
+        text-align: center;
+        margin-top: 10%;
+    }
+
+    .nav-1 {
+        padding: 30px;
+    }
+
+    #navigation {
+        display: flex;
+        justify-content: center;
+    }
+
+    #navigation a {
+        padding: 5px;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="box">
+        <header>
+            <nav class="nav-1">
+                <ul id="navigation">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="pedidos.html">Pedidos</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+
+            <h3 id="salgadosTitle">Salgados Fritos</h3>
+
+            <ul class="salgados" data-addPedido="-">
+                <div id="colum-4">
+                    <li id="bolinho+Carne">
+                        <h2>Bolinho de Carne</h2>
+                        <img src="">
+                        <p class="produto-descricao">carne e cebola</p>
+                        <p class="produto-preco">R$ 7,00</p>	
+                    </li>
+                    <li id="bolinho+Ovo">
+                        <h2>Bolinho de Ovo</h2>
+                        <img src="https://s2.glbimg.com/fDG7HWplXloyGG8MAiMtam4-8y4=/1200x/smart/filters:cover():strip_icc()/s.glbimg.com/po/rc/media/2014/10/28/17_58_29_769_pastel_maria.jpg">
+                        <p class="produto-descricao">massa de pão, ovo cozido</p>
+                        <p class="produto-preco">R$ 7,00</p>	
+                    </li>
+                    <li id="enrolSalsicha">
+                        <h2>Enrol de Salsicha</h2>
+                        <img src="https://s2.glbimg.com/fDG7HWplXloyGG8MAiMtam4-8y4=/1200x/smart/filters:cover():strip_icc()/s.glbimg.com/po/rc/media/2014/10/28/17_58_29_769_pastel_maria.jpg">
+                        <p class="produto-descricao">salsicha, mussarela</p>
+                        <p class="produto-preco">R$ 7,00</p>	
+                    </li>
+                </div>
+
+                <br><br>
+
+                <div id="colum-5">
+                    <li id="risolisCarne">
+                        <h2>Risolis de Carne</h2>
+                        <img src="https://s2.glbimg.com/fDG7HWplXloyGG8MAiMtam4-8y4=/1200x/smart/filters:cover():strip_icc()/s.glbimg.com/po/rc/media/2014/10/28/17_58_29_769_pastel_maria.jpg">
+                        <p class="produto-descricao">salsicha, mussarela</p>
+                        <p class="produto-preco">R$ 7,00</p>	
+                    </li>
+                    <li id="risolisPizza">
+                        <h2>Risolis de Pizza</h2>
+                        <img src="https://s2.glbimg.com/fDG7HWplXloyGG8MAiMtam4-8y4=/1200x/smart/filters:cover():strip_icc()/s.glbimg.com/po/rc/media/2014/10/28/17_58_29_769_pastel_maria.jpg">
+                        <p class="produto-descricao">Risolis de pizza</p>
+                        <p class="produto-preco">R$ 7,00</p>	
+                    </li>
+                    <li id="risolisFrango">
+                        <h2>Risolis de Frango</h2>
+                        <img src="https://s2.glbimg.com/fDG7HWplXloyGG8MAiMtam4-8y4=/1200x/smart/filters:cover():strip_icc()/s.glbimg.com/po/rc/media/2014/10/28/17_58_29_769_pastel_maria.jpg">
+                        <p class="produto-descricao">Risolis de frango</p>
+                        <p class="produto-preco">R$ 7,00</p>	
+                    </li>
+                </div>
+
+                <br><br>
+
+                <div id="colum-6">
+                    <li id="espetinho">
+                        <h2>Espetinho</h2>
+                        <img src="https://s2.glbimg.com/fDG7HWplXloyGG8MAiMtam4-8y4=/1200x/smart/filters:cover():strip_icc()/s.glbimg.com/po/rc/media/2014/10/28/17_58_29_769_pastel_maria.jpg">
+                        <p class="produto-descricao">Carne, cebola e tomate</p>
+                        <p class="produto-preco">R$ 7,00</p>	
+                    </li>
+                    <li id="coxinhaCarne">
+                        <h2>Coxinha de Carne</h2>
+                        <img src="https://s2.glbimg.com/fDG7HWplXloyGG8MAiMtam4-8y4=/1200x/smart/filters:cover():strip_icc()/s.glbimg.com/po/rc/media/2014/10/28/17_58_29_769_pastel_maria.jpg">
+                        <p class="produto-descricao">Coxinha de carne</p>
+                        <p class="produto-preco">R$ 7,00</p>	
+                    </li>
+                    <li id="coxinhaFrango">
+                        <h2>Coxinha de Frango</h2>
+                        <img src="https://s2.glbimg.com/fDG7HWplXloyGG8MAiMtam4-8y4=/1200x/smart/filters:cover():strip_icc()/s.glbimg.com/po/rc/media/2014/10/28/17_58_29_769_pastel_maria.jpg">
+                        <p class="produto-descricao">Coxinha de frango</p>
+                        <p class="produto-preco">R$ 7,00</p>	
+                    </li>
+                </div>
+            </ul>
+
+            <h4 id="pasteisTitle">Pastéis Fritos</h4>
+
+			<ul class="produtos" data-addPedido="-">
+                <div id="colum-1">
+                    <li id="pastel-carne">
+                        <h2>Carne</h2>
+                        <img src="https://s2.glbimg.com/fDG7HWplXloyGG8MAiMtam4-8y4=/1200x/smart/filters:cover():strip_icc()/s.glbimg.com/po/rc/media/2014/10/28/17_58_29_769_pastel_maria.jpg">
+                        <p class="produto-descricao">Pastel de carne</p>
+                        <p class="produto-preco">R$ 7,00</p>	
+                    </li>
+                    <li id="pastel-pizza">
+                        <h2>Pizza</h2>
+                        <img src="https://s2.glbimg.com/fDG7HWplXloyGG8MAiMtam4-8y4=/1200x/smart/filters:cover():strip_icc()/s.glbimg.com/po/rc/media/2014/10/28/17_58_29_769_pastel_maria.jpg">
+                        <p class="produto-descricao">Pastel de pizza</p>
+                        <p class="produto-preco">R$ 7,00</p>	
+                    </li>
+                    <li id="pastel-queijo">
+                        <h2>Queijo</h2>
+                        <img src="https://s2.glbimg.com/fDG7HWplXloyGG8MAiMtam4-8y4=/1200x/smart/filters:cover():strip_icc()/s.glbimg.com/po/rc/media/2014/10/28/17_58_29_769_pastel_maria.jpg">
+                        <p class="produto-descricao">Pastel de queijo</p>
+                        <p class="produto-preco">R$ 7,00</p>	
+                    </li>
+                </div>
+
+                <br><br>
+
+                <div id="colum-2">
+                    <li id="pastel-carneQueijo">
+                        <h2>Carne c/ Queijo</h2>
+                        <img src="https://s2.glbimg.com/fDG7HWplXloyGG8MAiMtam4-8y4=/1200x/smart/filters:cover():strip_icc()/s.glbimg.com/po/rc/media/2014/10/28/17_58_29_769_pastel_maria.jpg">
+                        <p class="produto-descricao">Pastel de carne com queijo</p>
+                        <p class="produto-preco">R$ 8,00</p>	
+                    </li>
+                    <li id="pastel-mussarela">
+                        <h2>Mussarela</h2>
+                        <img src="https://s2.glbimg.com/fDG7HWplXloyGG8MAiMtam4-8y4=/1200x/smart/filters:cover():strip_icc()/s.glbimg.com/po/rc/media/2014/10/28/17_58_29_769_pastel_maria.jpg">
+                        <p class="produto-descricao">Pastel de mussarela</p>
+                        <p class="produto-preco">R$ 7,00</p>	
+                    </li>
+                    <li id="pastel-carneMussarela">
+                        <h2>Carne c/ mussarela</h2>
+                        <img src="https://s2.glbimg.com/fDG7HWplXloyGG8MAiMtam4-8y4=/1200x/smart/filters:cover():strip_icc()/s.glbimg.com/po/rc/media/2014/10/28/17_58_29_769_pastel_maria.jpg">
+                        <p class="produto-descricao">Pastel de carne c/ mussarela</p>
+                        <p class="produto-preco">R$ 7,00</p>	
+                    </li>
+                </div>
+
+                <div id="colum-3">
+                    <li id="pastel-calabresaMussarela">
+                        <h2>Calabresa c/ mussarela</h2>
+                        <img src="https://s2.glbimg.com/fDG7HWplXloyGG8MAiMtam4-8y4=/1200x/smart/filters:cover():strip_icc()/s.glbimg.com/po/rc/media/2014/10/28/17_58_29_769_pastel_maria.jpg">
+                        <p class="produto-descricao">Pastel de calabresa c/ mussarela</p>
+                        <p class="produto-preco">R$ 7,00</p>	
+                    </li>
+                    <li id="pastel-baconMussarela">
+                        <h2>Bacon c/ mussarela</h2>
+                        <img src="https://s2.glbimg.com/fDG7HWplXloyGG8MAiMtam4-8y4=/1200x/smart/filters:cover():strip_icc()/s.glbimg.com/po/rc/media/2014/10/28/17_58_29_769_pastel_maria.jpg">
+                        <p class="produto-descricao">Pastel de calabresa c/ mussarela</p>
+                        <p class="produto-preco">R$ 7,00</p>	
+                    </li>
+                </div>
+			</ul>
+
+            <h5 id="bebidasTitle">Bebidas</h5>
+
+            <ul class="bebidas" data-addPedido="-">
+                <legend id="bebidaLegend">Sucos</legend>
+                <div id="colum-7">
+                    <li id="sucoLaranja">
+                        <h2>Suco de Laranja</h2>
+                        <img src="">
+                        <p class="produto-descricao">Copo de 300Ml</p>
+                        <p class="produto-preco">R$ 3,00</p>	
+                    </li>
+                    <li id="sucoLaranja">
+                        <h2>Suco de Laranja</h2>
+                        <img src="">
+                        <p class="produto-descricao">Copo de 500Ml</p>
+                        <p class="produto-preco">R$ 5,00</p>	
+                    </li>
+                    <li id="sucoLaranja">
+                        <h2>Sucos Prats</h2>
+                        <img src="https://hortifrutijardins.com.br/wp-content/uploads/2020/07/prats-laranja-peq.jpg">
+                        <p class="produto-descricao">Suco Prats</p>
+                        <p class="produto-preco">R$ 5,00</p>	
+                    </li>
+                </div>
+
+                <legend id="garrafasTitle">Garrafas</legend>
+
+                <div id="colum-8">
+                    <li id="tubaina">
+                        <h2>Tubaína</h2>
+                        <img src="https://santaluzia.vteximg.com.br/arquivos/ids/458188-1000-1000/775940.jpg?v=637246478974570000">
+                        <p class="produto-descricao">Tubaína 600ml</p>
+                        <p class="produto-preco">R$ 4,00</p>	
+                    </li>
+                    <li id="sodinha">
+                        <h2>Sodinha</h2>
+                        <img src="">
+                        <p class="produto-descricao">Sodinha</p>
+                        <p class="produto-preco">R$ 3,00</p>	
+                    </li>
+                    <li id="cocaKs">
+                        <h2>Coca KS</h2>
+                        <img src="https://app.cardapiodigital.net/tabuadecarne/1308-large_default/coca-cola-ks-235ml.jpg">
+                        <p class="produto-descricao">Coca KS</p>
+                        <p class="produto-preco">R$ 4,00</p>	
+                    </li>
+                </div>
+
+
+                <legend id="descartaveisTitle">Descartáveis</legend>
+
+                <div id="colum-9">
+                    <li id="CocaCola">
+                        <h2>Coca-Cola</h2>
+                        <img src="https://cdn-cosmos.bluesoft.com.br/products/7894900011609/2017-09-01-14-48-02-0300">
+                        <p class="produto-descricao">Coca de 600ml</p>
+                        <p class="produto-preco">R$ 6,00</p>	
+                    </li>
+                    <li id="CocaCola">
+                        <h2>Coca-Cola</h2>
+                        <img src="https://licoreschullavida.com/wp-content/uploads/2020/07/Coca-cola-1-litro.jpg">
+                        <p class="produto-descricao">Coca de 1L</p>
+                        <p class="produto-preco">R$ 7,00</p>	
+                    </li>
+                    <li id="CocaCola">
+                        <h2>Coca-Cola</h2>
+                        <img src="https://emporiopires.com.br/wp-content/uploads/2022/06/0b764df9d98e8aa42991f1e5ea29945f.jpg">
+                        <p class="produto-descricao">Coca de 2L</p>
+                        <p class="produto-preco">R$ 12,00</p>	
+                    </li>
+                </div>
+
+                <legend id="latasTitle">Latas</legend>
+
+                <div id="colum-10">
+                    <li id="Coca-Cola">
+                        <h2>Coca</h2>
+                        <img src="https://cdn-cosmos.bluesoft.com.br/products/7894900010015/2017-09-01-14-58-26-0300">
+                        <p class="produto-descricao">Coca lata</p>
+                        <p class="produto-preco">R$ 5,00</p>	
+                    </li>
+                    <li id="fantaLaranja">
+                        <h2>Fanta Laranja</h2>
+                        <img src="https://images.tcdn.com.br/img/img_prod/887622/refrigerante_fanta_laranja_lt_350ml_333_1_20201110145812.jpg">
+                        <p class="produto-descricao">Fanta Laranja</p>
+                        <p class="produto-preco">R$ 5,00</p>	
+                    </li>
+                    <li id="FantaUva">
+                        <h2>Fanta Uva</h2>
+                        <img src="https://http2.mlstatic.com/kit-5-refrigerante-fanta-uva-lata-350ml-D_NQ_NP_901380-MLB27344884945_052018-F.jpg">
+                        <p class="produto-descricao">Fanta Uva</p>
+                        <p class="produto-preco">R$ 5,00</p>	
+                    </li>
+                </div>
+                <br>
+                <div id="colum-10">
+                    <li id="tubaina">
+                        <h2>Tubaína</h2>
+                        <img src="https://tse3.mm.bing.net/th?id=OIP.JxK3OFhdgPIwf7ulM8aSxAHaHa&pid=Api&P=0&h=180">
+                        <p class="produto-descricao">Tubaína lata</p>
+                        <p class="produto-preco">R$ 4,00</p>	
+                    </li>
+                    <li id="guarana">
+                        <h2>Guaraná</h2>
+                        <img src="https://i1.wp.com/www.casabauduccope.com/wp-content/uploads/2020/08/guarana-antarctica-lata-330-ml-pt.jpg?fit=1000%2C1000&ssl=1">
+                        <p class="produto-descricao">Guaraná lata</p>
+                        <p class="produto-preco">R$ 4,00</p>	
+                    </li>
+                </div>
+
+                <legend id="juninhosTitle">Juninhos</legend>
+
+                <div id="colum-11">
+                    <li id="coca">
+                        <h2>Coca</h2>
+                        <img src="https://imagens.gimba.com.br/objetosmidia/ExibirObjetoMidia?Id=100801">
+                        <p class="produto-descricao">Coca pequena</p>
+                        <p class="produto-preco">R$ 3,00</p>	
+                    </li>
+                    <li id="guarana">
+                        <h2>Guaraná</h2>
+                        <img src="https://bompreco.vtexassets.com/arquivos/ids/155791/RefrigeranteGuaranaAntarctica200ml.jpg?v=637460618844130000">
+                        <p class="produto-descricao">Guaraná pequena</p>
+                        <p class="produto-preco">R$ 3,00</p>	
+                    </li>
+                </div>
+            </ul>
+
+            <div class="pedido-adicionado">
+                <div id="colum-12">
+                   <p></p>
+                </div>
+            </div>
+		</main>
+    </div>
+    
+    <footer class="footer">
+        <ul id="rodape">
+            <p>Nicolas Chaves</p>
+        </ul>
+    </footer>
+    
+    <script src="js/principal.js"></script>
+    <script src="js/pedidos.js"></script>
+</body>
+</html>

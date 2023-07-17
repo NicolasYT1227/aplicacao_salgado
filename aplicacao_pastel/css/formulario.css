@@ -1,0 +1,57 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+legend {
+    text-align: center;
+    padding: 5%;
+}
+
+.box {
+    position: absolute;
+    width: 400px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    border: 2.5px solid #000;
+    padding: 2.5%;
+}
+
+.inputEnvia {
+    box-shadow: 0 0 5px #000;
+}
+
+form div.inputEnvia {
+    position: relative;
+    margin: 2.5px 0;
+}
+
+form div.inputEnvia label {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    cursor: text;
+}
+
+form div.inputEnvia .input {
+    width: 100%;
+    padding: 5px;
+    border: 0;
+    border-bottom: 2px solid rgb(200, 200, 200);
+    outline: 0;
+}
+
+form div.inputEnvia .input:focus ~ label {
+    transform: translateY(-22px);
+}
+
+.btnEnviar {
+    width: 100%;
+    border-radius: 15px;
+    border: 2.5px solid #000;
+    font-size: 20px;
+    text-align: center;
+    background-color: #CCC;
+    cursor: pointer;
+}
